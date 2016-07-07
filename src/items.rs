@@ -1360,7 +1360,7 @@ fn rewrite_fn_base(context: &RewriteContext,
                 // If we've already gone multi-line, or the return type would push
                 // over the max width, then put the return type on a new line.
                 result.contains("\n") || multi_line_ret_str ||
-                result.len() + indent.width() + ret_str_len > context.config.max_width
+                result.len() + indent.width() + ret_str_len >= context.config.max_width
             }
         };
         let ret_indent = if ret_should_indent {
